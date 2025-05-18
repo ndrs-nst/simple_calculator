@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.enterButton = new System.Windows.Forms.Button();
             this.decimalButton = new System.Windows.Forms.Button();
             this.num0Button = new System.Windows.Forms.Button();
@@ -52,51 +52,51 @@
             this.clearEntryButton = new System.Windows.Forms.Button();
             this.subDisplayTextBox = new System.Windows.Forms.TextBox();
             this.mainDisplayTextBox = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.enterButton, 3, 4);
-            this.tableLayoutPanel1.Controls.Add(this.decimalButton, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.num0Button, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.signChangeButton, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.addButton, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.num3Button, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.num2Button, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.num1Button, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.substractButton, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.num6Button, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.num5Button, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.num4Button, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.multiplyButton, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.num9Button, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.num8Button, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.num7Button, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.divideButton, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.backspaceButton, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.clearButton, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.clearEntryButton, 0, 0);
-            this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(9, 100);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(396, 321);
-            this.tableLayoutPanel1.TabIndex = 4;
+            this.tableLayoutPanel.ColumnCount = 4;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel.Controls.Add(this.enterButton, 3, 4);
+            this.tableLayoutPanel.Controls.Add(this.decimalButton, 2, 4);
+            this.tableLayoutPanel.Controls.Add(this.num0Button, 1, 4);
+            this.tableLayoutPanel.Controls.Add(this.signChangeButton, 0, 4);
+            this.tableLayoutPanel.Controls.Add(this.addButton, 3, 3);
+            this.tableLayoutPanel.Controls.Add(this.num3Button, 2, 3);
+            this.tableLayoutPanel.Controls.Add(this.num2Button, 1, 3);
+            this.tableLayoutPanel.Controls.Add(this.num1Button, 0, 3);
+            this.tableLayoutPanel.Controls.Add(this.substractButton, 3, 2);
+            this.tableLayoutPanel.Controls.Add(this.num6Button, 2, 2);
+            this.tableLayoutPanel.Controls.Add(this.num5Button, 1, 2);
+            this.tableLayoutPanel.Controls.Add(this.num4Button, 0, 2);
+            this.tableLayoutPanel.Controls.Add(this.multiplyButton, 3, 1);
+            this.tableLayoutPanel.Controls.Add(this.num9Button, 2, 1);
+            this.tableLayoutPanel.Controls.Add(this.num8Button, 1, 1);
+            this.tableLayoutPanel.Controls.Add(this.num7Button, 0, 1);
+            this.tableLayoutPanel.Controls.Add(this.divideButton, 3, 0);
+            this.tableLayoutPanel.Controls.Add(this.backspaceButton, 2, 0);
+            this.tableLayoutPanel.Controls.Add(this.clearButton, 1, 0);
+            this.tableLayoutPanel.Controls.Add(this.clearEntryButton, 0, 0);
+            this.tableLayoutPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(9, 100);
+            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 5;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(396, 321);
+            this.tableLayoutPanel.TabIndex = 4;
             // 
             // enterButton
             // 
@@ -133,7 +133,7 @@
             this.num0Button.TabIndex = 17;
             this.num0Button.Text = "0";
             this.num0Button.UseVisualStyleBackColor = true;
-            this.num0Button.Click += new System.EventHandler(this.num0Button_Click);
+            this.num0Button.Click += new System.EventHandler(this.digitButton_Click);
             // 
             // signChangeButton
             // 
@@ -170,7 +170,7 @@
             this.num3Button.TabIndex = 14;
             this.num3Button.Text = "3";
             this.num3Button.UseVisualStyleBackColor = true;
-            this.num3Button.Click += new System.EventHandler(this.num3Button_Click);
+            this.num3Button.Click += new System.EventHandler(this.digitButton_Click);
             // 
             // num2Button
             // 
@@ -182,7 +182,7 @@
             this.num2Button.TabIndex = 13;
             this.num2Button.Text = "2";
             this.num2Button.UseVisualStyleBackColor = true;
-            this.num2Button.Click += new System.EventHandler(this.num2Button_Click);
+            this.num2Button.Click += new System.EventHandler(this.digitButton_Click);
             // 
             // num1Button
             // 
@@ -194,7 +194,7 @@
             this.num1Button.TabIndex = 12;
             this.num1Button.Text = "1";
             this.num1Button.UseVisualStyleBackColor = true;
-            this.num1Button.Click += new System.EventHandler(this.num1Button_Click);
+            this.num1Button.Click += new System.EventHandler(this.digitButton_Click);
             // 
             // substractButton
             // 
@@ -219,7 +219,7 @@
             this.num6Button.TabIndex = 10;
             this.num6Button.Text = "6";
             this.num6Button.UseVisualStyleBackColor = true;
-            this.num6Button.Click += new System.EventHandler(this.num6Button_Click);
+            this.num6Button.Click += new System.EventHandler(this.digitButton_Click);
             // 
             // num5Button
             // 
@@ -231,7 +231,7 @@
             this.num5Button.TabIndex = 9;
             this.num5Button.Text = "5";
             this.num5Button.UseVisualStyleBackColor = true;
-            this.num5Button.Click += new System.EventHandler(this.num5Button_Click);
+            this.num5Button.Click += new System.EventHandler(this.digitButton_Click);
             // 
             // num4Button
             // 
@@ -243,7 +243,7 @@
             this.num4Button.TabIndex = 8;
             this.num4Button.Text = "4";
             this.num4Button.UseVisualStyleBackColor = true;
-            this.num4Button.Click += new System.EventHandler(this.num4Button_Click);
+            this.num4Button.Click += new System.EventHandler(this.digitButton_Click);
             // 
             // multiplyButton
             // 
@@ -268,7 +268,7 @@
             this.num9Button.TabIndex = 6;
             this.num9Button.Text = "9";
             this.num9Button.UseVisualStyleBackColor = true;
-            this.num9Button.Click += new System.EventHandler(this.num9Button_Click);
+            this.num9Button.Click += new System.EventHandler(this.digitButton_Click);
             // 
             // num8Button
             // 
@@ -280,7 +280,7 @@
             this.num8Button.TabIndex = 5;
             this.num8Button.Text = "8";
             this.num8Button.UseVisualStyleBackColor = true;
-            this.num8Button.Click += new System.EventHandler(this.num8Button_Click);
+            this.num8Button.Click += new System.EventHandler(this.digitButton_Click);
             // 
             // num7Button
             // 
@@ -293,7 +293,7 @@
             this.num7Button.TabIndex = 4;
             this.num7Button.Text = "7";
             this.num7Button.UseVisualStyleBackColor = true;
-            this.num7Button.Click += new System.EventHandler(this.num7Button_Click);
+            this.num7Button.Click += new System.EventHandler(this.digitButton_Click);
             // 
             // divideButton
             // 
@@ -391,12 +391,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(414, 431);
             this.Controls.Add(this.subDisplayTextBox);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.mainDisplayTextBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "MainForm";
             this.Text = "Calculator";
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
+            this.tableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,7 +428,7 @@
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button clearEntryButton;
         private System.Windows.Forms.TextBox mainDisplayTextBox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
     }
 }
 
