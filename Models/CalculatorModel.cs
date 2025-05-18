@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace simple_calculator.Models
+namespace SimpleCalculator.Models
 {
     internal enum MathOperator
     {

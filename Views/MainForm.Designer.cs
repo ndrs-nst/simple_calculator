@@ -1,4 +1,4 @@
-﻿namespace simple_calculator
+﻿namespace SimpleCalculator
 {
     partial class MainForm
     {
