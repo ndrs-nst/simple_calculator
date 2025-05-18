@@ -1,5 +1,6 @@
 ﻿using SimpleCalculator.Models;
 using System;
+using System.Linq;
 
 namespace SimpleCalculator.ViewModels
 {
@@ -10,6 +11,7 @@ namespace SimpleCalculator.ViewModels
         private bool _operatorSet = false;
         private bool _isRightOperandExist = false;
         private bool _isError = false;
+        private int _limitDecimalPlace = 5;
 
         public string MainDisplay { get; private set; } = "0";
         public string SubDisplay { get; private set; } = string.Empty;
@@ -49,8 +51,12 @@ namespace SimpleCalculator.ViewModels
             if (_isNewEntry || MainDisplay == "0")
                 MainDisplay = digit;
             else
-                MainDisplay += digit;
+            {
+                if (MainDisplay.Contains(".") && MainDisplay.Split('.').Last().Length >= _limitDecimalPlace)
+                    return;
 
+                MainDisplay += digit;
+            }
             _isNewEntry = false;
             _isError = false;
         }
@@ -102,7 +108,7 @@ namespace SimpleCalculator.ViewModels
                 try
                 {
                     var result = _model.Calculate();
-                    MainDisplay = result.ToString();
+                    MainDisplay = result.ToString($"N{_limitDecimalPlace}");
                     _isRightOperandExist = true;
                 }
                 catch (Exception ex)
