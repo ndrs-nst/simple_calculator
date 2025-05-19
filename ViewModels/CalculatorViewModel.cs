@@ -1,4 +1,5 @@
-﻿using SimpleCalculator.Models;
+﻿using log4net;
+using SimpleCalculator.Models;
 using System;
 using System.Linq;
 
@@ -6,6 +7,8 @@ namespace SimpleCalculator.ViewModels
 {
     internal class CalculatorViewModel
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof(CalculatorViewModel));
+
         private readonly CalculatorModel _model = new CalculatorModel();
         private bool _isNewEntry = true;
         private bool _operatorSet = false;
@@ -44,6 +47,11 @@ namespace SimpleCalculator.ViewModels
             _isNewEntry = true;
         }
 
+        private bool IsDecimalPlaceDigitLimit(string value)
+        {
+            return value.Contains(".") && value.Split('.').Last().Length >= _limitDecimalPlace;
+        }
+
         public void InputDigit(string digit)
         {
             PrepareForNewCalculationDisplay();
@@ -52,13 +60,15 @@ namespace SimpleCalculator.ViewModels
                 MainDisplay = digit;
             else
             {
-                if (MainDisplay.Contains(".") && MainDisplay.Split('.').Last().Length >= _limitDecimalPlace)
+                if (IsDecimalPlaceDigitLimit(MainDisplay))
                     return;
 
                 MainDisplay += digit;
             }
             _isNewEntry = false;
             _isError = false;
+
+            Log.Info($"Input digit : [{digit}]");
         }
 
         public void SetOperator(MathOperator op)
@@ -76,46 +86,52 @@ namespace SimpleCalculator.ViewModels
             SubDisplay = $"{leftOperandForSubDisplay} {operatorForSubDisplay} ";
             _operatorSet = true;
             _isNewEntry = true;
+
+            Log.Info($"Input operator : [{operatorForSubDisplay}]");
         }
 
         public void Calculate()
         {
-            if (_isError)
+            try
             {
-                Clear();
-                return;
+                if (_isError)
+                {
+                    Clear();
+                    return;
+                }
+
+                if (_operatorSet)
+                {
+                    if (_isRightOperandExist)
+                    {
+                        _model.LeftOperand = double.TryParse(MainDisplay, out var left) ? left : 0;
+                        string leftOperandForSubDisplay = _model.LeftOperand.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                        string operatorForSubDisplay = OperatorToString(_model.Operator);
+                        string rightOperandForSubDisplay = _model.RightOperand.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                        SubDisplay = $"{leftOperandForSubDisplay} {operatorForSubDisplay} {rightOperandForSubDisplay} =";
+                    }
+                    else
+                    {
+                        string leftOperandForSubDisplay = _model.LeftOperand.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                        string operatorForSubDisplay = OperatorToString(_model.Operator);
+                        _model.RightOperand = double.TryParse(MainDisplay, out var right) ? right : 0;
+                        string rightOperandForSubDisplay = _model.RightOperand.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                        SubDisplay = $"{leftOperandForSubDisplay} {operatorForSubDisplay} {rightOperandForSubDisplay} =";
+                    }
+
+                
+                        var result = _model.Calculate();
+                        MainDisplay = IsDecimalPlaceDigitLimit(result.ToString()) ? result.ToString($"N{_limitDecimalPlace}") : result.ToString();
+                        _isRightOperandExist = true;
+                        Log.Info($"Calculation result: {SubDisplay} {MainDisplay}");
+                
+                }
             }
-
-            if (_operatorSet)
+            catch (Exception ex)
             {
-                if (_isRightOperandExist)
-                {
-                    _model.LeftOperand = double.TryParse(MainDisplay, out var left) ? left : 0;
-                    string leftOperandForSubDisplay = _model.LeftOperand.ToString(System.Globalization.CultureInfo.InvariantCulture);
-                    string operatorForSubDisplay = OperatorToString(_model.Operator);
-                    string rightOperandForSubDisplay = _model.RightOperand.ToString(System.Globalization.CultureInfo.InvariantCulture);
-                    SubDisplay = $"{leftOperandForSubDisplay} {operatorForSubDisplay} {rightOperandForSubDisplay} =";
-                }
-                else
-                {
-                    string leftOperandForSubDisplay = _model.LeftOperand.ToString(System.Globalization.CultureInfo.InvariantCulture);
-                    string operatorForSubDisplay = OperatorToString(_model.Operator);
-                    _model.RightOperand = double.TryParse(MainDisplay, out var right) ? right : 0;
-                    string rightOperandForSubDisplay = _model.RightOperand.ToString(System.Globalization.CultureInfo.InvariantCulture);
-                    SubDisplay = $"{leftOperandForSubDisplay} {operatorForSubDisplay} {rightOperandForSubDisplay} =";
-                }
-
-                try
-                {
-                    var result = _model.Calculate();
-                    MainDisplay = result.ToString($"N{_limitDecimalPlace}");
-                    _isRightOperandExist = true;
-                }
-                catch (Exception ex)
-                {
-                    MainDisplay = ex.Message;
-                    _isError = true;
-                }
+                MainDisplay = ex.Message;
+                _isError = true;
+                Log.Error("Error during calculation", ex);
             }
         }
 
@@ -129,6 +145,8 @@ namespace SimpleCalculator.ViewModels
 
             MainDisplay = "0";
             _isNewEntry = true;
+
+            Log.Info("Complete");
         }
 
         public void Clear()
@@ -140,6 +158,8 @@ namespace SimpleCalculator.ViewModels
             _operatorSet = false;
             _isError = false;
             _isNewEntry = true;
+
+            Log.Info("Complete");
         }
         
         public void Backspace()
@@ -167,7 +187,9 @@ namespace SimpleCalculator.ViewModels
 
             // If backspace results in "0", treat as new entry state for some logic
             if (MainDisplay == "0")
-                _isNewEntry = true; 
+                _isNewEntry = true;
+
+            Log.Info("Complete");
         }
 
         public void InputDecimal()
@@ -183,6 +205,8 @@ namespace SimpleCalculator.ViewModels
             {
                 MainDisplay += ".";
             }
+
+            Log.Info($"Input digit : [.]");
         }
 
         public void ToggleSign()
@@ -191,6 +215,8 @@ namespace SimpleCalculator.ViewModels
             {
                 MainDisplay = (-val).ToString();
             }
+
+            Log.Info("Complete");
         }
     }
 }
