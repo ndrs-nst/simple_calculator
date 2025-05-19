@@ -53,6 +53,9 @@
   <ItemGroup>
     <Compile Include="Models\CalculatorModel.cs" />
     <Compile Include="ViewModels\CalculatorViewModel.cs" />
+    <Compile Include="Views\Components\DisplayTextButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

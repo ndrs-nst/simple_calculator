@@ -30,26 +30,26 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.enterButton = new System.Windows.Forms.Button();
-            this.decimalButton = new System.Windows.Forms.Button();
-            this.num0Button = new System.Windows.Forms.Button();
-            this.signChangeButton = new System.Windows.Forms.Button();
-            this.addButton = new System.Windows.Forms.Button();
-            this.num3Button = new System.Windows.Forms.Button();
-            this.num2Button = new System.Windows.Forms.Button();
-            this.num1Button = new System.Windows.Forms.Button();
-            this.substractButton = new System.Windows.Forms.Button();
-            this.num6Button = new System.Windows.Forms.Button();
-            this.num5Button = new System.Windows.Forms.Button();
-            this.num4Button = new System.Windows.Forms.Button();
-            this.multiplyButton = new System.Windows.Forms.Button();
-            this.num9Button = new System.Windows.Forms.Button();
-            this.num8Button = new System.Windows.Forms.Button();
-            this.num7Button = new System.Windows.Forms.Button();
-            this.divideButton = new System.Windows.Forms.Button();
-            this.backspaceButton = new System.Windows.Forms.Button();
-            this.clearButton = new System.Windows.Forms.Button();
-            this.clearEntryButton = new System.Windows.Forms.Button();
+            this.enterButton = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.decimalButton = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.num0Button = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.signChangeButton = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.addButton = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.num3Button = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.num2Button = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.num1Button = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.substractButton = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.num6Button = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.num5Button = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.num4Button = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.multiplyButton = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.num9Button = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.num8Button = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.num7Button = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.divideButton = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.backspaceButton = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.clearButton = new SimpleCalculator.Views.Components.DisplayTextButton();
+            this.clearEntryButton = new SimpleCalculator.Views.Components.DisplayTextButton();
             this.subDisplayTextBox = new System.Windows.Forms.TextBox();
             this.mainDisplayTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel.SuspendLayout();
@@ -101,6 +101,7 @@
             // enterButton
             // 
             this.enterButton.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.enterButton.DisplayText = "=";
             this.enterButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.enterButton.Location = new System.Drawing.Point(297, 256);
             this.enterButton.Margin = new System.Windows.Forms.Padding(0);
@@ -113,6 +114,7 @@
             // 
             // decimalButton
             // 
+            this.decimalButton.DisplayText = ".";
             this.decimalButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.decimalButton.Location = new System.Drawing.Point(198, 256);
             this.decimalButton.Margin = new System.Windows.Forms.Padding(0);
@@ -125,6 +127,7 @@
             // 
             // num0Button
             // 
+            this.num0Button.DisplayText = "0";
             this.num0Button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.num0Button.Location = new System.Drawing.Point(99, 256);
             this.num0Button.Margin = new System.Windows.Forms.Padding(0);
@@ -137,6 +140,7 @@
             // 
             // signChangeButton
             // 
+            this.signChangeButton.DisplayText = "±";
             this.signChangeButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.signChangeButton.Location = new System.Drawing.Point(0, 256);
             this.signChangeButton.Margin = new System.Windows.Forms.Padding(0);
@@ -150,6 +154,7 @@
             // addButton
             // 
             this.addButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.addButton.DisplayText = "+";
             this.addButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addButton.Location = new System.Drawing.Point(297, 192);
             this.addButton.Margin = new System.Windows.Forms.Padding(0);
@@ -162,6 +167,7 @@
             // 
             // num3Button
             // 
+            this.num3Button.DisplayText = "3";
             this.num3Button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.num3Button.Location = new System.Drawing.Point(198, 192);
             this.num3Button.Margin = new System.Windows.Forms.Padding(0);
@@ -174,6 +180,7 @@
             // 
             // num2Button
             // 
+            this.num2Button.DisplayText = "2";
             this.num2Button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.num2Button.Location = new System.Drawing.Point(99, 192);
             this.num2Button.Margin = new System.Windows.Forms.Padding(0);
@@ -186,6 +193,7 @@
             // 
             // num1Button
             // 
+            this.num1Button.DisplayText = "1";
             this.num1Button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.num1Button.Location = new System.Drawing.Point(0, 192);
             this.num1Button.Margin = new System.Windows.Forms.Padding(0);
@@ -199,6 +207,7 @@
             // substractButton
             // 
             this.substractButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.substractButton.DisplayText = "-";
             this.substractButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.substractButton.Location = new System.Drawing.Point(297, 128);
             this.substractButton.Margin = new System.Windows.Forms.Padding(0);
@@ -211,6 +220,7 @@
             // 
             // num6Button
             // 
+            this.num6Button.DisplayText = "6";
             this.num6Button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.num6Button.Location = new System.Drawing.Point(198, 128);
             this.num6Button.Margin = new System.Windows.Forms.Padding(0);
@@ -223,6 +233,7 @@
             // 
             // num5Button
             // 
+            this.num5Button.DisplayText = "5";
             this.num5Button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.num5Button.Location = new System.Drawing.Point(99, 128);
             this.num5Button.Margin = new System.Windows.Forms.Padding(0);
@@ -235,6 +246,7 @@
             // 
             // num4Button
             // 
+            this.num4Button.DisplayText = "4";
             this.num4Button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.num4Button.Location = new System.Drawing.Point(0, 128);
             this.num4Button.Margin = new System.Windows.Forms.Padding(0);
@@ -248,6 +260,7 @@
             // multiplyButton
             // 
             this.multiplyButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.multiplyButton.DisplayText = "×";
             this.multiplyButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.multiplyButton.Location = new System.Drawing.Point(297, 64);
             this.multiplyButton.Margin = new System.Windows.Forms.Padding(0);
@@ -260,6 +273,7 @@
             // 
             // num9Button
             // 
+            this.num9Button.DisplayText = "9";
             this.num9Button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.num9Button.Location = new System.Drawing.Point(198, 64);
             this.num9Button.Margin = new System.Windows.Forms.Padding(0);
@@ -272,6 +286,7 @@
             // 
             // num8Button
             // 
+            this.num8Button.DisplayText = "8";
             this.num8Button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.num8Button.Location = new System.Drawing.Point(99, 64);
             this.num8Button.Margin = new System.Windows.Forms.Padding(0);
@@ -284,6 +299,7 @@
             // 
             // num7Button
             // 
+            this.num7Button.DisplayText = "7";
             this.num7Button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.num7Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.num7Button.Location = new System.Drawing.Point(0, 64);
@@ -298,6 +314,7 @@
             // divideButton
             // 
             this.divideButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.divideButton.DisplayText = "÷";
             this.divideButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.divideButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.divideButton.Location = new System.Drawing.Point(297, 0);
@@ -312,6 +329,7 @@
             // backspaceButton
             // 
             this.backspaceButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.backspaceButton.DisplayText = "↩";
             this.backspaceButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.backspaceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backspaceButton.Location = new System.Drawing.Point(198, 0);
@@ -326,6 +344,7 @@
             // clearButton
             // 
             this.clearButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.clearButton.DisplayText = "C";
             this.clearButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.clearButton.Location = new System.Drawing.Point(99, 0);
@@ -340,6 +359,7 @@
             // clearEntryButton
             // 
             this.clearEntryButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.clearEntryButton.DisplayText = "CE";
             this.clearEntryButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clearEntryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearEntryButton.Location = new System.Drawing.Point(0, 0);
@@ -407,26 +427,26 @@
         #endregion
 
         private System.Windows.Forms.TextBox subDisplayTextBox;
-        private System.Windows.Forms.Button enterButton;
-        private System.Windows.Forms.Button decimalButton;
-        private System.Windows.Forms.Button num0Button;
-        private System.Windows.Forms.Button signChangeButton;
-        private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Button num3Button;
-        private System.Windows.Forms.Button num2Button;
-        private System.Windows.Forms.Button num1Button;
-        private System.Windows.Forms.Button substractButton;
-        private System.Windows.Forms.Button num6Button;
-        private System.Windows.Forms.Button num5Button;
-        private System.Windows.Forms.Button num4Button;
-        private System.Windows.Forms.Button multiplyButton;
-        private System.Windows.Forms.Button num9Button;
-        private System.Windows.Forms.Button num8Button;
-        private System.Windows.Forms.Button num7Button;
-        private System.Windows.Forms.Button divideButton;
-        private System.Windows.Forms.Button backspaceButton;
-        private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Button clearEntryButton;
+        private SimpleCalculator.Views.Components.DisplayTextButton enterButton;
+        private SimpleCalculator.Views.Components.DisplayTextButton decimalButton;
+        private SimpleCalculator.Views.Components.DisplayTextButton num0Button;
+        private SimpleCalculator.Views.Components.DisplayTextButton signChangeButton;
+        private SimpleCalculator.Views.Components.DisplayTextButton addButton;
+        private SimpleCalculator.Views.Components.DisplayTextButton num3Button;
+        private SimpleCalculator.Views.Components.DisplayTextButton num2Button;
+        private SimpleCalculator.Views.Components.DisplayTextButton num1Button;
+        private SimpleCalculator.Views.Components.DisplayTextButton substractButton;
+        private SimpleCalculator.Views.Components.DisplayTextButton num6Button;
+        private SimpleCalculator.Views.Components.DisplayTextButton num5Button;
+        private SimpleCalculator.Views.Components.DisplayTextButton num4Button;
+        private SimpleCalculator.Views.Components.DisplayTextButton multiplyButton;
+        private SimpleCalculator.Views.Components.DisplayTextButton num9Button;
+        private SimpleCalculator.Views.Components.DisplayTextButton num8Button;
+        private SimpleCalculator.Views.Components.DisplayTextButton num7Button;
+        private SimpleCalculator.Views.Components.DisplayTextButton divideButton;
+        private SimpleCalculator.Views.Components.DisplayTextButton backspaceButton;
+        private SimpleCalculator.Views.Components.DisplayTextButton clearButton;
+        private SimpleCalculator.Views.Components.DisplayTextButton clearEntryButton;
         private System.Windows.Forms.TextBox mainDisplayTextBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
     }
