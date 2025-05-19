@@ -8,16 +8,37 @@ namespace SimpleCalculator.ViewModels
     internal class CalculatorViewModel
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(CalculatorViewModel));
-
         private readonly CalculatorModel _model = new CalculatorModel();
+        private readonly int _limitDecimalPlace = 5;
+
         private bool _isNewEntry = true;
         private bool _operatorSet = false;
         private bool _isRightOperandExist = false;
         private bool _isError = false;
-        private int _limitDecimalPlace = 5;
 
         public string MainDisplay { get; private set; } = "0";
         public string SubDisplay { get; private set; } = string.Empty;
+
+        public RelayCommand<string> InputDigitCommand { get; private set; }
+        public RelayCommand<MathOperator> SetOperatorCommand { get; private set; }
+        public RelayCommand CalculateCommand { get; private set; }
+        public RelayCommand ClearEntryCommand { get; private set; }
+        public RelayCommand ClearCommand { get; private set; }
+        public RelayCommand BackspaceCommand { get; private set; }
+        public RelayCommand InputDecimalCommand { get; private set; }
+        public RelayCommand ToggleSignCommand { get; private set; }
+
+        public CalculatorViewModel()
+        {
+            InputDigitCommand = new RelayCommand<string>(InputDigit);
+            SetOperatorCommand = new RelayCommand<MathOperator>(SetOperator);
+            CalculateCommand = new RelayCommand(Calculate);
+            ClearEntryCommand = new RelayCommand(ClearEntry);
+            ClearCommand = new RelayCommand(Clear);
+            BackspaceCommand = new RelayCommand(Backspace);
+            InputDecimalCommand = new RelayCommand(InputDecimal);
+            ToggleSignCommand = new RelayCommand(ToggleSign);
+        }
 
         private string OperatorToString(MathOperator op)
         {
@@ -119,12 +140,10 @@ namespace SimpleCalculator.ViewModels
                         SubDisplay = $"{leftOperandForSubDisplay} {operatorForSubDisplay} {rightOperandForSubDisplay} =";
                     }
 
-                
-                        var result = _model.Calculate();
-                        MainDisplay = IsDecimalPlaceDigitLimit(result.ToString()) ? result.ToString($"N{_limitDecimalPlace}") : result.ToString();
-                        _isRightOperandExist = true;
-                        Log.Info($"Calculation result: {SubDisplay} {MainDisplay}");
-                
+                    var result = _model.Calculate();
+                    MainDisplay = IsDecimalPlaceDigitLimit(result.ToString()) ? result.ToString($"N{_limitDecimalPlace}") : result.ToString();
+                    _isRightOperandExist = true;
+                    Log.Info($"Calculation result: {SubDisplay} {MainDisplay}");
                 }
             }
             catch (Exception ex)
@@ -161,7 +180,7 @@ namespace SimpleCalculator.ViewModels
 
             Log.Info("Complete");
         }
-        
+
         public void Backspace()
         {
             if (_isError)
@@ -220,4 +239,3 @@ namespace SimpleCalculator.ViewModels
         }
     }
 }
-

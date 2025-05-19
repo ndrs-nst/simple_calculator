@@ -1,4 +1,4 @@
-﻿namespace SimpleCalculator
+namespace SimpleCalculator
 {
     partial class MainForm
     {
@@ -417,7 +417,6 @@
             this.KeyPreview = true;
             this.Name = "MainForm";
             this.Text = "Calculator";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.tableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,4 +1,4 @@
-﻿using SimpleCalculator.Models;
+using SimpleCalculator.Models;
 using SimpleCalculator.ViewModels;
 using System;
 using System.Windows.Forms;
@@ -14,10 +14,12 @@ namespace SimpleCalculator
             InitializeComponent();
             UpdateDisplay();
 
-            // I will disable tabstop on button to prevent keydown event blocking
-            // Please consider to change this code if application should supports tab movement
+            // Please consider to change this code if application should supports tab movement, keypress on button
             foreach (Button btn in tableLayoutPanel.Controls)
+            {
                 btn.TabStop = false;
+                btn.KeyPress += (s, e) => { e.Handled = true; };
+            }
         }
 
         private void UpdateDisplay()
@@ -29,165 +31,171 @@ namespace SimpleCalculator
         private void digitButton_Click(object sender, EventArgs e)
         {
             var button = sender as Button;
-            _viewModel.InputDigit(button.Text);
+            _viewModel.InputDigitCommand.Execute(button.Text);
             UpdateDisplay();
         }
 
         private void clearEntryButton_Click(object sender, EventArgs e)
         {
-            _viewModel.ClearEntry();
+            _viewModel.ClearEntryCommand.Execute(null);
             UpdateDisplay();
         }
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            _viewModel.Clear();
+            _viewModel.ClearCommand.Execute(null);
             UpdateDisplay();
         }
 
         private void backspaceButton_Click(object sender, EventArgs e)
         {
-            _viewModel.Backspace();
+            _viewModel.BackspaceCommand.Execute(null);
             UpdateDisplay();
         }
 
         private void divideButton_Click(object sender, EventArgs e)
         {
-            _viewModel.SetOperator(MathOperator.Divide);
+            _viewModel.SetOperatorCommand.Execute(MathOperator.Divide);
             UpdateDisplay();
         }
 
         private void multiplyButton_Click(object sender, EventArgs e)
         {
-            _viewModel.SetOperator(MathOperator.Multiply);
+            _viewModel.SetOperatorCommand.Execute(MathOperator.Multiply);
             UpdateDisplay();
         }
 
         private void substractButton_Click(object sender, EventArgs e)
         {
-            _viewModel.SetOperator(MathOperator.Subtract);
+            _viewModel.SetOperatorCommand.Execute(MathOperator.Subtract);
             UpdateDisplay();
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            _viewModel.SetOperator(MathOperator.Add);
+            _viewModel.SetOperatorCommand.Execute(MathOperator.Add);
             UpdateDisplay();
         }
 
         private void enterButton_Click(object sender, EventArgs e)
         {
-            _viewModel.Calculate();
+            _viewModel.CalculateCommand.Execute(null);
             UpdateDisplay();
         }
 
         private void signChangeButton_Click(object sender, EventArgs e)
         {
-            _viewModel.ToggleSign();
+            _viewModel.ToggleSignCommand.Execute(null);
             UpdateDisplay();
         }
 
         private void decimalButton_Click(object sender, EventArgs e)
         {
-            _viewModel.InputDecimal();
+            _viewModel.InputDecimalCommand.Execute(null);
             UpdateDisplay();
         }
 
-        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            switch (e.KeyCode)
+            KeyPressBinding(keyData);
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void KeyPressBinding(Keys key)
+        {
+            switch (key)
             {
                 case Keys.D0:
                 case Keys.NumPad0:
-                    _viewModel.InputDigit("0");
+                    _viewModel.InputDigitCommand.Execute("0");
                     UpdateDisplay();
                     break;
                 case Keys.D1:
                 case Keys.NumPad1:
-                    _viewModel.InputDigit("1");
+                    _viewModel.InputDigitCommand.Execute("1");
                     UpdateDisplay();
                     break;
                 case Keys.D2:
                 case Keys.NumPad2:
-                    _viewModel.InputDigit("2");
+                    _viewModel.InputDigitCommand.Execute("2");
                     UpdateDisplay();
                     break;
                 case Keys.D3:
                 case Keys.NumPad3:
-                    _viewModel.InputDigit("3");
+                    _viewModel.InputDigitCommand.Execute("3");
                     UpdateDisplay();
                     break;
                 case Keys.D4:
                 case Keys.NumPad4:
-                    _viewModel.InputDigit("4");
+                    _viewModel.InputDigitCommand.Execute("4");
                     UpdateDisplay();
                     break;
                 case Keys.D5:
                 case Keys.NumPad5:
-                    _viewModel.InputDigit("5");
+                    _viewModel.InputDigitCommand.Execute("5");
                     UpdateDisplay();
                     break;
                 case Keys.D6:
                 case Keys.NumPad6:
-                    _viewModel.InputDigit("6");
+                    _viewModel.InputDigitCommand.Execute("6");
                     UpdateDisplay();
                     break;
                 case Keys.D7:
                 case Keys.NumPad7:
-                    _viewModel.InputDigit("7");
+                    _viewModel.InputDigitCommand.Execute("7");
                     UpdateDisplay();
                     break;
                 case Keys.D8:
                 case Keys.NumPad8:
-                    _viewModel.InputDigit("8");
+                    _viewModel.InputDigitCommand.Execute("8");
                     UpdateDisplay();
                     break;
                 case Keys.D9:
                 case Keys.NumPad9:
-                    _viewModel.InputDigit("9");
+                    _viewModel.InputDigitCommand.Execute("9");
                     UpdateDisplay();
                     break;
                 case Keys.Decimal:
                 case Keys.OemPeriod:
-                    _viewModel.InputDecimal();
+                    _viewModel.InputDecimalCommand.Execute(null);
                     UpdateDisplay();
                     break;
                 case Keys.Enter:
-                    _viewModel.Calculate();
+                    _viewModel.CalculateCommand.Execute(null);
                     UpdateDisplay();
                     break;
                 case Keys.Back:
-                    _viewModel.Backspace();
+                    _viewModel.BackspaceCommand.Execute(null);
                     UpdateDisplay();
                     break;
                 case Keys.Delete:
-                    _viewModel.ClearEntry();
+                    _viewModel.ClearEntryCommand.Execute(null);
                     UpdateDisplay();
                     break;
                 case Keys.Escape:
-                    _viewModel.Clear();
+                    _viewModel.ClearCommand.Execute(null);
                     UpdateDisplay();
                     break;
                 case Keys.F9:
-                    _viewModel.ToggleSign();
+                    _viewModel.ToggleSignCommand.Execute(null);
                     UpdateDisplay();
                     break;
                 case Keys.Add:
                 case Keys.Oemplus:
-                    _viewModel.SetOperator(MathOperator.Add);
+                    _viewModel.SetOperatorCommand.Execute(MathOperator.Add);
                     UpdateDisplay();
                     break;
                 case Keys.Subtract:
                 case Keys.OemMinus:
-                    _viewModel.SetOperator(MathOperator.Subtract);
+                    _viewModel.SetOperatorCommand.Execute(MathOperator.Subtract);
                     UpdateDisplay();
                     break;
                 case Keys.Multiply:
-                    _viewModel.SetOperator(MathOperator.Multiply);
+                    _viewModel.SetOperatorCommand.Execute(MathOperator.Multiply);
                     UpdateDisplay();
                     break;
                 case Keys.Divide:
-                    _viewModel.SetOperator(MathOperator.Divide);
+                    _viewModel.SetOperatorCommand.Execute(MathOperator.Divide);
                     UpdateDisplay();
                     break;
                 default:
