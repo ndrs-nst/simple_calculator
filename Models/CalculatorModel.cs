@@ -16,27 +16,27 @@ namespace SimpleCalculator.Models
 
     internal class CalculatorModel
     {
+        private Dictionary<MathOperator, ICommand> _commands = new Dictionary<MathOperator, ICommand>
+        {
+            { MathOperator.Add, new AddCommand() },
+            { MathOperator.Subtract, new SubtractCommand() },
+            { MathOperator.Multiply, new MultiplyCommand() },
+            { MathOperator.Divide, new DivideCommand() }
+        };
+
         public double LeftOperand { get; set; }
         public double RightOperand { get; set; }
         public MathOperator Operator { get; set; }
 
         public double Calculate()
         {
-            switch (Operator)
+            if (_commands.TryGetValue(Operator, out ICommand command))
             {
-                case MathOperator.Add:
-                    return LeftOperand + RightOperand;
-                case MathOperator.Subtract:
-                    return LeftOperand - RightOperand;
-                case MathOperator.Multiply:
-                    return LeftOperand * RightOperand;
-                case MathOperator.Divide:
-                    if (RightOperand != 0)
-                        return LeftOperand / RightOperand;
-                    else
-                        throw new DivideByZeroException("Cannot divide by zero.");
-                default:
-                    throw new InvalidOperationException("Invalid operation.");
+                return command.Execute(LeftOperand, RightOperand);
+            }
+            else
+            {
+                throw new InvalidOperationException("Invalid operation.");
             }
         }
     }
